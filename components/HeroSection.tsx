@@ -1,0 +1,44 @@
+import { Popcorn, Search } from "lucide-react";
+import Image from "next/image";
+
+export default function HeroSection() {
+  return (
+    <header className="relative  h-[70vh]  items-center justify-center flex">
+      <div className="absolute inset-0 opacity-50 grid grid-cols-5 gap-1 top-0">
+        {Array(5)
+          .fill(1)
+          .map((_, index) => (
+            <div key={index}>
+              <Image
+                className="object-contain w-full"
+                src={`/movie-img/movie-${index + 1}.webp`}
+                width={250}
+                height={250}
+                alt="movie-poster"
+              />
+            </div>
+          ))}
+      </div>
+      <div className="absolute inset-0 bg-linear-to-t from-woodsmoke via-woodsmoke/80  to-transparent"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-woodsmoke/90 via-transparent  to-woodsmoke/90"></div>
+
+      <div className="flex relative  z-10 flex-col items-center justify-center space-y-5">
+        <div className="items-center w-14 h-14 rounded-xl bg-red-500 shadow-lg flex mb-4 justify-center">
+          <Popcorn className="h-7 w-7" />
+        </div>
+        <h1 className="text-center text-6xl text-white font-bold">MovieBox</h1>
+        <p className="text-center text-xl text-santas-gray">
+          Discover the most popular movies trending right now
+        </p>
+        <div className="flex md:min-w-2xl  flex-row p-3 h-10 items-center bg-dark-black rounded-xl">
+          <Search className="mr-2 " size={30} />
+          <input
+            type="text"
+            className="border-none outline-none  w-full"
+            placeholder="Search for movies..."
+          />
+        </div>
+      </div>
+    </header>
+  );
+}
