@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion, useAnimationControls } from "framer-motion";
 import { useEffect, useState } from "react";
 import { TypingText } from "./TextEffect";
+import GlassTimeCard from "./GlassTime";
 
 export interface MovieData {
   vote_average: number;
@@ -22,7 +23,7 @@ export default function HeroSection({
   movies: MovieData[];
 }) {
   return (
-    <header className="relative  h-[70vh]  items-center justify-center flex">
+    <header className="relative  md:h-[70vh] h-[60vh]  items-center justify-center flex">
       <div className="absolute inset-0 opacity-50 grid grid-cols-5 gap-1 top-0">
         {Array(5)
           .fill(1)
@@ -63,6 +64,9 @@ export default function HeroSection({
             // value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+        </div>
+        <div className="md:hidden">
+          <GlassTimeCard showTimezone showSeconds />
         </div>
       </div>
     </header>
