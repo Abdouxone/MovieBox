@@ -1,16 +1,18 @@
 "use client";
 import GlassTimeCard from "@/components/GlassTime";
 import HeroSection from "@/components/HeroSection";
-import { StarIcon } from "lucide-react";
+import { PlayIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import BorderGlow from "../components/BorderGlow";
+import Link from "next/link";
 
 export interface MovieData {
   vote_average: number;
   title: string;
   poster_path: string;
   overview: string;
+  id: number;
   release_date: string;
 }
 
@@ -52,6 +54,7 @@ export default function Home() {
 
     searchMovies(search);
   }, [search]);
+
   return (
     <div>
       <HeroSection search={search} setSearch={setSearch} movies={movies} />
@@ -67,6 +70,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-5 grid-cols-2 gap-5  ">
           {movies.map((data, index) => (
             <BorderGlow
+              key={index}
               edgeSensitivity={30}
               glowColor="40 80 80"
               backgroundColor="#120F17"
@@ -107,11 +111,18 @@ export default function Home() {
                   </span>
                   <StarIcon size={20} color="yellow" />
                 </div>
-                <div className="absolute shadow-2xl p-2 bottom-20">
+                <div className="absolute shadow-2xl p-2 bottom-10">
                   <span className="text-base leading-5 text-center opacity-0  group-hover:opacity-90 transition-all duration-300 line-clamp-3">
                     {data.overview}
                   </span>
                 </div>
+                <Link
+                  href={`https://www.vidking.net/embed/movie/${data.id}`}
+                  className="absolute rounded-full p-3 backdrop-blur-md shadow-2xl  opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-500 z-10 cursor-pointer top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                >
+                  <PlayIcon color="green" size={50} />
+                  <p className="md:text-lg text-sm text-green-700">Watch now</p>
+                </Link>
               </div>
             </BorderGlow>
           ))}
