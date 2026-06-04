@@ -23,7 +23,6 @@ export default function Home() {
         const response = await fetch("/api/movies/top-rated");
         const data = await response.json();
         setMovies(data.results || []);
-        console.log(data);
       } catch (error) {
         console.error("error fetching top related movies", error);
       } finally {
