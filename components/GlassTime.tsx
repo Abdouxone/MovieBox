@@ -73,7 +73,7 @@ export function GlassTimeCard(props: GlassTimeCardProps) {
   };
 
   return (
-    <div className="w-80 text-white bg-neutral-white/20 shadow-xl backdrop-blur-xl p-4 rounded-lg border border-white/10">
+    <div className="w-60 text-white bg-neutral-white/20 shadow-xl backdrop-blur-xl p-4 rounded-lg ">
       <div className="flex flex-col gap-1 items-center">
         <div className="text-sm">{formatDate(currentTime)}</div>
         <div className="text-5xl font-bold tabular-nums">

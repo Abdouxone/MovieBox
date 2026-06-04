@@ -1,4 +1,5 @@
 "use client";
+import GlassTimeCard from "@/components/GlassTime";
 import HeroSection from "@/components/HeroSection";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
@@ -54,11 +55,13 @@ export default function Home() {
     <div>
       <HeroSection search={search} setSearch={setSearch} movies={movies} />
       <div className="flex flex-col mx-10 ">
-        <div className="space-y-5 mb-7 ">
+        <div className="space-y-5 mb-7 flex md:flex-row flex-col items-center justify-between ">
           <h1 className="font-bold md:text-4xl text-3xl">
             Popular Movies right now!
           </h1>
-          <p className="text-lg text-santas-gray">Explore new names today</p>
+          <div className="hidden md:block">
+            <GlassTimeCard showTimezone showSeconds />
+          </div>
         </div>
         <div className="grid lg:grid-cols-5 grid-cols-2 gap-5  ">
           {movies.map((data, index) => (
