@@ -34,10 +34,10 @@ export default function HeroSection({
           <Popcorn className="h-7 w-7" />
         </div>
         <h1 className="text-center text-6xl text-white font-bold">MovieBox</h1>
-        <p className="text-center text-xl text-santas-gray">
+        <p className="text-center p-4 text-xl text-santas-gray">
           Discover the most popular movies trending right now
         </p>
-        <div className="flex md:min-w-2xl  flex-row p-3 h-10 items-center bg-dark-black rounded-xl">
+        <div className="flex md:min-w-2xl min-w-sm  flex-row p-3 h-10 items-center bg-dark-black rounded-xl">
           <Search className="mr-2 " size={30} />
           <input
             type="text"

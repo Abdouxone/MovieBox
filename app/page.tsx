@@ -55,7 +55,9 @@ export default function Home() {
       <HeroSection search={search} setSearch={setSearch} />
       <div className="flex flex-col mx-10 ">
         <div className="space-y-5 mb-7 ">
-          <h1 className="font-bold text-4xl">Popular Movies right now!</h1>
+          <h1 className="font-bold md:text-4xl text-3xl">
+            Popular Movies right now!
+          </h1>
           <p className="text-lg text-santas-gray">Explore new names today</p>
         </div>
         <div className="grid lg:grid-cols-5 grid-cols-2 gap-5  ">
