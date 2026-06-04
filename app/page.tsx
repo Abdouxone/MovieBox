@@ -75,8 +75,10 @@ export default function Home() {
                 className="object-cover w-full h-full group-hover:scale-105 transition-all duration-500"
               />
               <div className="absolute flex flex-col z-10 px-2  text-left  bg-woodsmoke text-[#FFFFFF]  w-full h-12 right-0 bottom-0">
-                <span className="text-xl">{data.title}</span>
-                <span className="text-base">
+                <span className="md:text-xl text-sm line-clamp-1">
+                  {data.title}
+                </span>
+                <span className="md:text-base text-xs">
                   {data.release_date.split("-")[0]}
                 </span>
               </div>
