@@ -1,13 +1,25 @@
 import { Popcorn, Search } from "lucide-react";
 import Image from "next/image";
-import { useEffect } from "react";
+import { motion, useAnimationControls } from "framer-motion";
+import { useEffect, useState } from "react";
+import { TypingText } from "./TextEffect";
+
+export interface MovieData {
+  vote_average: number;
+  title: string;
+  poster_path: string;
+  overview: string;
+  release_date: string;
+}
 
 export default function HeroSection({
   search,
   setSearch,
+  movies,
 }: {
   search: string;
   setSearch: (value: string) => void;
+  movies: MovieData[];
 }) {
   return (
     <header className="relative  h-[70vh]  items-center justify-center flex">
@@ -18,7 +30,11 @@ export default function HeroSection({
             <div key={index}>
               <Image
                 className="object-contain w-full"
-                src={`/movie-img/movie-${index + 1}.webp`}
+                src={
+                  movies[index + 1]?.poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${movies[index + 1].poster_path}`
+                    : "/movie-img.webp"
+                }
                 width={250}
                 height={250}
                 alt="movie-poster"
@@ -34,9 +50,10 @@ export default function HeroSection({
           <Popcorn className="h-7 w-7" />
         </div>
         <h1 className="text-center text-6xl text-white font-bold">MovieBox</h1>
-        <p className="text-center p-4 text-xl text-santas-gray">
+        {/* <p className="text-center p-4 text-xl text-santas-gray">
           Discover the most popular movies trending right now
-        </p>
+        </p> */}
+        <TypingText />
         <div className="flex md:min-w-2xl min-w-sm  flex-row p-3 h-10 items-center bg-dark-black rounded-xl">
           <Search className="mr-2 " size={30} />
           <input

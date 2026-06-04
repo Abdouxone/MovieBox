@@ -52,7 +52,7 @@ export default function Home() {
   }, [search]);
   return (
     <div>
-      <HeroSection search={search} setSearch={setSearch} />
+      <HeroSection search={search} setSearch={setSearch} movies={movies} />
       <div className="flex flex-col mx-10 ">
         <div className="space-y-5 mb-7 ">
           <h1 className="font-bold md:text-4xl text-3xl">
@@ -68,7 +68,11 @@ export default function Home() {
             >
               <div className="absolute z-10 inset-0 bg-linear-to-t from-woodsmoke/50  to-transparent "></div>
               <Image
-                src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}
+                src={
+                  data.poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
+                    : "/placeholder-image.svg"
+                }
                 alt=""
                 height={400}
                 width={250}
