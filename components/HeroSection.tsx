@@ -1,7 +1,14 @@
 import { Popcorn, Search } from "lucide-react";
 import Image from "next/image";
+import { useEffect } from "react";
 
-export default function HeroSection() {
+export default function HeroSection({
+  search,
+  setSearch,
+}: {
+  search: string;
+  setSearch: (value: string) => void;
+}) {
   return (
     <header className="relative  h-[70vh]  items-center justify-center flex">
       <div className="absolute inset-0 opacity-50 grid grid-cols-5 gap-1 top-0">
@@ -36,6 +43,8 @@ export default function HeroSection() {
             type="text"
             className="border-none outline-none  w-full"
             placeholder="Search for movies..."
+            // value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
       </div>

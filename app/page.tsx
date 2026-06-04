@@ -14,6 +14,7 @@ export interface MovieData {
 
 export default function Home() {
   const [movies, setMovies] = useState<MovieData[]>([]);
+  const [search, setSearch] = useState("");
   const [loading, isLoading] = useState(true);
 
   useEffect(() => {
@@ -34,13 +35,13 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <HeroSection />
+      <HeroSection search={search} setSearch={setSearch} />
       <div className="flex flex-col mx-10 ">
         <div className="space-y-5 mb-7 ">
           <h1 className="font-bold text-4xl">Popular Movies right now!</h1>
           <p className="text-lg text-santas-gray">Explore new names today</p>
         </div>
-        <div className="grid grid-cols-5 gap-3  ">
+        <div className="grid lg:grid-cols-5 grid-cols-2 gap-5  ">
           {movies.map((data, index) => (
             <div
               className=" overflow-hidden flex items-center justify-center  rounded-lg shadow  group relative"
@@ -54,7 +55,7 @@ export default function Home() {
                 width={250}
                 className="object-cover w-full h-full group-hover:scale-105 transition-all duration-500"
               />
-              <div className="absolute flex flex-col z-10 bg-woodsmoke shadow-lg text-left text-[#FFFFFF]  w-full h-15 right-0 bottom-0">
+              <div className="absolute flex flex-col z-10 px-2  text-left  bg-woodsmoke text-[#FFFFFF]  w-full h-12 right-0 bottom-0">
                 <span className="text-xl">{data.title}</span>
                 <span className="text-base">
                   {data.release_date.split("-")[0]}
@@ -65,6 +66,11 @@ export default function Home() {
                   {data.vote_average.toFixed(2)}
                 </span>
                 <StarIcon size={20} color="yellow" />
+              </div>
+              <div className="absolute shadow-2xl p-2 bottom-20">
+                <span className="text-lg text-center opacity-0  group-hover:opacity-90 transition-all duration-300 line-clamp-3">
+                  {data.overview}
+                </span>
               </div>
             </div>
           ))}
