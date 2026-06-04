@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import BorderGlow from "../components/BorderGlow";
 
 export interface MovieData {
   vote_average: number;
@@ -65,42 +66,54 @@ export default function Home() {
         </div>
         <div className="grid lg:grid-cols-5 grid-cols-2 gap-5  ">
           {movies.map((data, index) => (
-            <div
-              className=" overflow-hidden flex items-center justify-center  rounded-lg shadow  group relative"
-              key={index}
+            <BorderGlow
+              edgeSensitivity={30}
+              glowColor="40 80 80"
+              backgroundColor="#120F17"
+              borderRadius={28}
+              glowRadius={40}
+              glowIntensity={1}
+              coneSpread={25}
+              animated={false}
+              colors={["#c084fc", "#f472b6", "#38bdf8"]}
             >
-              <div className="absolute z-10 inset-0 bg-linear-to-t from-woodsmoke/50  to-transparent "></div>
-              <Image
-                src={
-                  data.poster_path
-                    ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
-                    : "/placeholder-image.svg"
-                }
-                alt=""
-                height={400}
-                width={250}
-                className="object-cover w-full h-full group-hover:scale-105 transition-all duration-500"
-              />
-              <div className="absolute flex flex-col z-10 px-2  text-left  bg-woodsmoke text-[#FFFFFF]  w-full h-12 right-0 bottom-0">
-                <span className="md:text-xl text-sm line-clamp-1">
-                  {data.title}
-                </span>
-                <span className="md:text-base text-xs">
-                  {data.release_date.split("-")[0]}
-                </span>
+              <div
+                className=" overflow-hidden flex items-center justify-center  rounded-lg shadow  group relative"
+                key={index}
+              >
+                <div className="absolute z-10 inset-0 bg-linear-to-t from-woodsmoke/50  to-transparent "></div>
+                <Image
+                  src={
+                    data.poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
+                      : "/placeholder-image.svg"
+                  }
+                  alt=""
+                  height={400}
+                  width={250}
+                  className="object-cover w-full h-full group-hover:scale-105 transition-all duration-500"
+                />
+                <div className="absolute flex flex-col z-10 px-2  text-left  bg-woodsmoke text-[#FFFFFF]  w-full h-12 right-0 bottom-0">
+                  <span className="md:text-xl text-sm line-clamp-1">
+                    {data.title}
+                  </span>
+                  <span className="md:text-base text-xs">
+                    {data.release_date.split("-")[0]}
+                  </span>
+                </div>
+                <div className="absolute flex  items-center space-x-2 px-2  justify-center rounded-2xl flex-row  top-2 right-2 bg-dark-black">
+                  <span className="text-lg font-semibold">
+                    {data.vote_average.toFixed(2)}
+                  </span>
+                  <StarIcon size={20} color="yellow" />
+                </div>
+                <div className="absolute shadow-2xl p-2 bottom-20">
+                  <span className="text-base leading-5 text-center opacity-0  group-hover:opacity-90 transition-all duration-300 line-clamp-3">
+                    {data.overview}
+                  </span>
+                </div>
               </div>
-              <div className="absolute flex  items-center space-x-2 px-2  justify-center rounded-2xl flex-row  top-2 right-2 bg-dark-black">
-                <span className="text-lg font-semibold">
-                  {data.vote_average.toFixed(2)}
-                </span>
-                <StarIcon size={20} color="yellow" />
-              </div>
-              <div className="absolute shadow-2xl p-2 bottom-20">
-                <span className="text-base leading-5 text-center opacity-0  group-hover:opacity-90 transition-all duration-300 line-clamp-3">
-                  {data.overview}
-                </span>
-              </div>
-            </div>
+            </BorderGlow>
           ))}
         </div>
       </div>
