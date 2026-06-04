@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export function TypingText({
   words = ["Discover the most popular", "movies trending right now!"],
   typingSpeed = 100,
-  deleteSpeed = 100,
+  deleteSpeed = 50,
   delayBetweenWords = 1000,
 }: {
   words?: string[];
