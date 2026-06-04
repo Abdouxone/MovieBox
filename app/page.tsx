@@ -14,7 +14,7 @@ export interface MovieData {
 
 export default function Home() {
   const [movies, setMovies] = useState<MovieData[]>([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
   const [loading, isLoading] = useState(true);
 
   useEffect(() => {
@@ -33,6 +33,23 @@ export default function Home() {
 
     fetchTopRelatedMovies();
   }, []);
+
+  useEffect(() => {
+    async function searchMovies(search: string) {
+      if (search.length < 2) {
+        return;
+      }
+      try {
+        const response = await fetch(`/api/movies/search?query=${search}`);
+        const data = await response.json();
+        setMovies(data.results);
+      } catch (error) {
+        console.log("error ", error);
+      }
+    }
+
+    searchMovies(search);
+  }, [search]);
   return (
     <div>
       <HeroSection search={search} setSearch={setSearch} />
