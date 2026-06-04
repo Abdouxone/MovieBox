@@ -85,7 +85,7 @@ export default function Home() {
                 <StarIcon size={20} color="yellow" />
               </div>
               <div className="absolute shadow-2xl p-2 bottom-20">
-                <span className="text-lg text-center opacity-0  group-hover:opacity-90 transition-all duration-300 line-clamp-3">
+                <span className="text-base leading-5 text-center opacity-0  group-hover:opacity-90 transition-all duration-300 line-clamp-3">
                   {data.overview}
                 </span>
               </div>
