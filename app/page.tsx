@@ -5,6 +5,8 @@ import { PlayIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import BorderGlow from "../components/BorderGlow";
+import LightRays from "@/components/LightRays";
+
 import Link from "next/link";
 
 export interface MovieData {
@@ -56,7 +58,25 @@ export default function Home() {
   }, [search]);
 
   return (
-    <div>
+    <div className="relative">
+      <div className="absolute  inset-0 ">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#ff0000"
+          raysSpeed={1}
+          lightSpread={0.4}
+          rayLength={1}
+          followMouse={true}
+          mouseInfluence={0.3}
+          noiseAmount={0}
+          distortion={0}
+          className="custom-rays"
+          pulsating={false}
+          fadeDistance={2}
+          saturation={-30}
+        />
+      </div>
+
       <HeroSection search={search} setSearch={setSearch} movies={movies} />
       <div className="flex flex-col md:mx-10 mx-4 ">
         <div className="space-y-5 mb-7 flex md:flex-row flex-col items-center justify-between ">
@@ -98,7 +118,7 @@ export default function Home() {
                   className="object-cover w-full h-full group-hover:scale-105 transition-all duration-500"
                 />
                 <div className="absolute flex flex-col z-10 px-5  text-left  bg-woodsmoke text-[#FFFFFF]  w-full h-12 right-0 bottom-0">
-                  <span className="md:text-xl text-sm line-clamp-1">
+                  <span className="md:text-xl group-hover:text-red-500 transition-all duration-300 text-sm line-clamp-1">
                     {data.title}
                   </span>
                   <span className="md:text-base text-xs">
