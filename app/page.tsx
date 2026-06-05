@@ -58,7 +58,7 @@ export default function Home() {
   return (
     <div>
       <HeroSection search={search} setSearch={setSearch} movies={movies} />
-      <div className="flex flex-col mx-10 ">
+      <div className="flex flex-col md:mx-10 mx-4 ">
         <div className="space-y-5 mb-7 flex md:flex-row flex-col items-center justify-between ">
           <h1 className="font-bold md:text-4xl text-3xl">
             Popular Movies right now!
@@ -83,7 +83,7 @@ export default function Home() {
               colors={["#c084fc", "#f472b6", "#38bdf8"]}
             >
               <div
-                className=" overflow-hidden flex items-center h-[380px] justify-center  rounded-2xl   group relative"
+                className=" overflow-hidden flex items-center md:h-[380px] h-[300px] justify-center  rounded-2xl   group relative"
                 key={index}
               >
                 <div className="absolute z-10 inset-0 bg-linear-to-t from-woodsmoke/50  to-transparent "></div>

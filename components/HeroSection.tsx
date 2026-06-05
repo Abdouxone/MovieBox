@@ -50,7 +50,7 @@ export default function HeroSection({
         <div className="items-center w-14 h-14 rounded-xl bg-red-500 shadow-lg flex mb-4 justify-center">
           <Popcorn className="h-7 w-7" />
         </div>
-        <h1 className="text-center text-6xl text-white font-bold">
+        <h1 className="text-center md:text-6xl text-5xl text-white font-bold">
           Netfrjo Box
         </h1>
         {/* <p className="text-center p-4 text-xl text-santas-gray">
