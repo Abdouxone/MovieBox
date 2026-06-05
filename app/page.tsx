@@ -83,7 +83,7 @@ export default function Home() {
               colors={["#c084fc", "#f472b6", "#38bdf8"]}
             >
               <div
-                className=" overflow-hidden flex items-center md:h-[380px] h-[300px] justify-center  rounded-2xl   group relative"
+                className=" overflow-hidden flex items-center md:h-[380px] h-[280px] justify-center  rounded-2xl   group relative"
                 key={index}
               >
                 <div className="absolute z-10 inset-0 bg-linear-to-t from-woodsmoke/50  to-transparent "></div>
