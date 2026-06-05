@@ -59,7 +59,7 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <div className="absolute  inset-0 ">
+      <div className="absolute overflow-hidden inset-0 ">
         <LightRays
           raysOrigin="top-center"
           raysColor="#ff0000"
