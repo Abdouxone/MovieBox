@@ -70,6 +70,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-5 grid-cols-2 gap-5  ">
           {movies.map((data, index) => (
             <BorderGlow
+              className=""
               key={index}
               edgeSensitivity={30}
               glowColor="40 80 80"
@@ -82,7 +83,7 @@ export default function Home() {
               colors={["#c084fc", "#f472b6", "#38bdf8"]}
             >
               <div
-                className=" overflow-hidden flex items-center justify-center  rounded-lg shadow  group relative"
+                className=" overflow-hidden flex items-center h-[380px] justify-center  rounded-2xl   group relative"
                 key={index}
               >
                 <div className="absolute z-10 inset-0 bg-linear-to-t from-woodsmoke/50  to-transparent "></div>
@@ -92,12 +93,11 @@ export default function Home() {
                       ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
                       : "/placeholder-image.svg"
                   }
-                  alt=""
-                  height={400}
-                  width={250}
+                  alt={data.title}
+                  fill
                   className="object-cover w-full h-full group-hover:scale-105 transition-all duration-500"
                 />
-                <div className="absolute flex flex-col z-10 px-2  text-left  bg-woodsmoke text-[#FFFFFF]  w-full h-12 right-0 bottom-0">
+                <div className="absolute flex flex-col z-10 px-5  text-left  bg-woodsmoke text-[#FFFFFF]  w-full h-12 right-0 bottom-0">
                   <span className="md:text-xl text-sm line-clamp-1">
                     {data.title}
                   </span>
@@ -111,11 +111,11 @@ export default function Home() {
                   </span>
                   <StarIcon size={20} color="yellow" />
                 </div>
-                <div className="absolute shadow-2xl p-2 bottom-10">
+                {/* <div className="absolute shadow-2xl p-2 bottom-10">
                   <span className="text-base leading-5 text-center opacity-0  group-hover:opacity-90 transition-all duration-300 line-clamp-3">
                     {data.overview}
                   </span>
-                </div>
+                </div> */}
                 <Link
                   href={`https://www.vidking.net/embed/movie/${data.id}`}
                   className="absolute rounded-full p-3 backdrop-blur-md shadow-2xl  opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-500 z-10 cursor-pointer top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
