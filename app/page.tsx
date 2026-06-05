@@ -64,7 +64,7 @@ export default function Home() {
           raysOrigin="top-center"
           raysColor="#ff0000"
           raysSpeed={1}
-          lightSpread={0.4}
+          lightSpread={0.3}
           rayLength={1}
           followMouse={true}
           mouseInfluence={0.3}
@@ -73,7 +73,7 @@ export default function Home() {
           className="custom-rays"
           pulsating={false}
           fadeDistance={2}
-          saturation={-30}
+          saturation={0}
         />
       </div>
 
